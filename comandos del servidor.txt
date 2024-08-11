@@ -1,0 +1,29 @@
+#Inicia los estilos de tailwind en el servidor
+python manage.py tailwind start
+
+#Inicia el localhost
+python manage.py runserver
+
+#Genera un link con los protocolos de https (Solo sirve si se mantiene con intenet y en dado caso
+de que se cierre el servidor ya no funcionara el link que genere)[Recuerde actualizar en settings.py y en stripe cuando este en modo desarrollador]
+ngrok.exe http 8000
+
+#Genera un backup en archivo .csv (en modelos debe definirse que modelo es el que quiere hacer un backup)
+python manage.py backup_db --csv=backup.csv --model=accounts.User
+
+#Genera un backup en archivo .sql (en modelos debe definirse que modelo es el que quiere hacer un backup)
+python manage.py backup_db --csv=backup.sql --model=accounts.User
+
+#links de Stripe
+
+https://dashboard.stripe.com/test/products/prod_Q7NWzqaAQhNj3q
+
+https://dashboard.stripe.com/test/subscriptions
+
+https://dashboard.stripe.com/test/webhooks/we_1PJVp5JmTTplu4egpIXuslxc
+
+#admin
+http://127.0.0.1:8000/admin
+
+#XAMPP
+http://127.0.0.1/phpmyadmin/index.php?route=/database/structure&db=con

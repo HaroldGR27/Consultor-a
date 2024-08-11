@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alianzas Estratégicas Submenú2 (Servicios Tercerizados)</title>
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static 'ConsultoriaApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+
+    <!-- Styles -->
+    <link href="{% static 'ConsultoriaApp/css/gestion2.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <a href="#" class="boton-regreso" onclick="goBack()">&larr; Regresar</a>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-loguin">
+                    <h1 style="font-size: 30px; text-align: center; color: #fff; font-family: arial;">Alianzas
+                        Estratégicas</h1>
+                    <h1 style="font-size: 30px; text-align: center; color: #fff; font-family: arial;">(Servicios
+                        Tercerizados)</h1>
+                    <br>
+                    <p style="font-size: 23px; text-align: justify; color: #fff;">
+                        <br>• Financiamiento.</br>
+                        <br>• Contables (Optimización tributaria / Control de Gastos).</br>
+                        <br>•Notarías para (Constitución de Emprea, poderes, etc).</br>
+                        <br>• Marketing Digital Profesionalizado.</br>
+                        <br>• Propiedad Intelectual.</br>
+                    </p>
+                    {% if user.is_authenticated %}
+                    <a href="/Alianzas-Estrategicas-3" class="button">Ver curso</a>
+                    {% else %}
+                    <a href="/Inicio-de-sesion" class="button">Debes iniciar sesión</a>
+                    {% endif %}
+                    </br>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

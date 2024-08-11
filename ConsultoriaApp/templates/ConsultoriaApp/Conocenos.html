@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quiénes Somos?</title>
+    {% load static %}
+
+    <title>Consultoria</title>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  
+      <!-- Bootstrap -->
+      <link href="{% static 'ConsultoriaApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  
+       <!-- Fonts -->
+      
+       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+       <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic" rel="stylesheet">
+       
+  
+      <!-- Styles -->
+      <link href="{% static 'ConsultoriaApp/css/Estilo.css' %}" rel="stylesheet">
+      <noscript><link href="{% static 'ConsultoriaApp/css/noscript.css' %}" rel="stylesheet"></noscript>
+  
+</head>
+<body>
+
+    <main>
+        <a href="#" class="boton-regreso" onclick="goBack()">&larr; Regresar</a>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+        <style>
+            .boton-regreso {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #3498db;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            }
+
+            .boton-regreso:hover {
+                background-color: #2980b9;
+            }
+            
+        </style>
+
+
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-loguin">
+                    <h1 style="font-size: 30px; text-align: center; color: #fff; font-family: arial;">Quienes somos</h1>
+                    <p style="font-size: 23px; text-align: justify ; color: #fff;">
+                        Somos una empresa 100% orgullosamente mexicana, dedicada a 
+                        brindar asesorías en el área fiscal, así como en temas en 
+                        comercio exterior y cfdis
+                    </p>
+                    <br>
+                    <h1 style="font-size: 30px; text-align: center; color: #fff; font-family: arial;">Nuestra misión</h1>
+                    <p style="font-size: 23px; text-align: justify; color: #fff;">
+                    es poder resolver las dudas de nuestros clientes asesorándolos
+                    de una manera profesional y correctamente para su mejor desempeño 
+                    y evolución, a través de un servicio eficiente y de la mejor
+                    calidad, siempre cuidando los procesos y la transparencia, 
+                    que correspondan con las leyes así como con los lineamientos 
+                    internos de nuestra empresa.
+                    
+                </p>
+            </br>
+            <br>
+            <h1 style="font-size: 30px; text-align: center; color: #fff; font-family: arial;">Nuestros valores</h1>
+                    <p style="font-size: 23px; text-align: justify  ; color: #fff;">
+                    Honestidad: 
+                    Asegurarnos de que nuestras asesorías cuenten con especialistas 
+                    100% acorde a la materia que se requiera.
+                </p>
+                <p style="font-size: 23px; text-align: justify ; color: #fff;">
+                    Transparencia:
+                    Nuestros servicios cuentan con la integridad y discreción de los 
+                    colaboradores, además de ser un servicio de alta calidad.
+                    </p>
+                    <p style="font-size: 23px; text-align: justify ; color: #fff;">
+                    Innovación: Estamos a la vanguardia en información y en el aspecto 
+                    regulatorio y técnico que el SAT brinda a sus contribuyentes.
+                </p>
+            </br>
+        </div>
+    </div>
+</div>
+    </main>
+</body>
+</html>
+

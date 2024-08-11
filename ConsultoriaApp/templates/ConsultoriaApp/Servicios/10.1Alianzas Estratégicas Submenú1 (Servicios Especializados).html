@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alianzas Estratégicas Submenú1 (Servicios Especializados)</title>
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static 'ConsultoriaApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+
+    <!-- Styles -->
+    <link href="{% static 'ConsultoriaApp/css/gestion2.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <a href="#" class="boton-regreso" onclick="goBack()">&larr; Regresar</a>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-loguin">
+                    <h1 style="font-size: 30px; text-align: center ; color: #fff; font-family: arial;">Alianzas
+                        Estratégicas </h1>
+                    <h1 style="font-size: 30px; text-align: center ; color: #fff; font-family: arial;">(Servicios
+                        Especializados)</h1>
+                    <br>
+                    <p style="font-size: 23px; text-align: justify ; color: #fff;">
+                        <br>• Consulta de confirmación y clasificación arancelaria</br>
+                        <br>• Peritajes en Comercio Exterior.</br>
+                        <br>• Valoración aduanera.</br>
+                        <br>• Tratados y acuerdos internacionales.</br>
+                        <br>• Reglas de Origen.</br>
+                        <br>•Gestión en procedimientos de prácticas desleales en comercio exterior.</br>
+                    </p>
+                    {% if user.is_authenticated %}
+                    <a href="/Alianzas-Estrategicas" class="button">Ver curso</a>
+                    {% else %}
+                    <a href="/Inicio-de-sesion" class="button">Debes iniciar sesión</a>
+                    {% endif %}
+                    </br>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

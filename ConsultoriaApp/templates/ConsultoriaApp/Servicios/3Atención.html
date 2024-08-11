@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atención de Auditorías</title>
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static 'ConsultoriaApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+
+    <!-- Styles -->
+    <link href="{% static 'ConsultoriaApp/css/gestion2.css' %}" rel="stylesheet">
+</head>
+<style>
+    body,
+    h1,
+    p {
+        font-family: 'Arial', sans-serif;
+    }
+</style>
+
+<body>
+    <main>
+        <a href="#" class="boton-regreso" onclick="goBack()">&larr; Regresar</a>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-loguin">
+                    <h1 style="font-size: 30px; text-align: center; color: #fff; font-family: arial;">
+                        Atención de Auditorías</h1>
+                    <br></br>
+
+                    <h1 style="font-size: 23px; text-align: justify; color: #fff; font-family: arial;"><br>Atención y
+                        acompañamiento en auditorías fiscales y aduaneras:</br></h1>
+                    <p style="font-size: 23px; text-align: justify ; color: #fff;">
+                        <br>• Gabinetes, visitas domiciliarias, revisión electrónica, PAMAS, verificación de mercancía
+                        en transporte.</br>
+                        <br>• Adopción de acuerdos conclusivos (PRODECON)</br>
+                        <br>• Asistencia en procedimientos 69B del CFF, Devoluciones, revisiones de Créditos
+                        Fiscales.</br>
+                        <br>• Procesos de autocorrección.</br>
+                        <br>• Asesoramiento en temas de Reconsideración administrativa.</br>
+                        <br>• Apoyo en la tramitología, y asesoramiento para ser proveedor de certificación de
+                        CFDI.</br>
+                        <br>• Controles Tecnológicos y Regulatorios en relación a PCCFDI.</br>
+                    </p>
+                    {% if user.is_authenticated %}
+                    <a href="/Atencion-de-Auditorias" class="button">Ver curso</a>
+                    {% else %}
+                    <a href="/Inicio-de-sesion" class="button">Debes iniciar sesión</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

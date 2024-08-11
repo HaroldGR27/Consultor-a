@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistencia en la Operación Aduanera</title>
+    {% load static %}
+      
+          <!-- Bootstrap -->
+          <link href="{% static 'ConsultoriaApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+      
+           <!-- Fonts -->
+          
+           <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+           <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+           
+      
+          <!-- Styles -->
+          <link href="{% static 'ConsultoriaApp/css/gestion2.css' %}" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <a href="#" class="boton-regreso" onclick="goBack()">&larr; Regresar</a>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-loguin">
+                    <h1 style="font-size: 30px; text-align: center; color: #fff; font-family: arial;">Asistencia en la Operación Aduanera</h1>
+                    <br>
+                    <p style="font-size: 23px; text-align: justify ; color: #fff;"> 
+ <br>• Solución de problemas de cumplimiento operativo</br>
+ <br>• Apoyo en el reconocimiento aduanero.</br>
+ <br>• Elaboración de documentos para las operaciones.</br>
+ <br>• Cumplimiento de Regulaciones y Reestricciones no Arancelarias.</br>
+ <br>• Operaciones especiales, incluyendo cambios de régimen y operaciones
+virtuales, consolidación y desconsolidación de carga.</br>
+ <br>• Administración del portal electrónico de Aduanas (VUCEM) y generación de
+reportes estadísticos.</br>
+ <br>• Reconciliación de datos aduaneros.</br>
+ <br>• Manejo de términos internacionales de compra-venta (INCOTERMS).</br>
+                    </p>
+                    {% if user.is_authenticated %}
+                    <a href="/Asistencia-en-la-Operacion-Aduanera" class="button">Ver curso</a>
+                    {% else %}
+                    <a href="/Inicio-de-sesion" class="button">Debes iniciar sesión</a>
+                    {% endif %}
+              </br>
+        </div>
+    </div>
+</div>
+    </main>
+</body>
+</html>

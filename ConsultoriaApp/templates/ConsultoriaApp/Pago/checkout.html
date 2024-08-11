@@ -1,0 +1,387 @@
+{% load static tailwind_tags %}
+
+{% tailwind_css %}
+
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'ConsultoriaApp/css/stripe.css' %}" />
+<script src="https://js.stripe.com/v3/"></script>
+{% endblock extra_head %}
+
+<div class="bg-white dark:bg-dark-second overflow-hidden">
+
+    <div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+
+        <div class="hidden lg:block dark:bg-dark-third bg-gray-50 absolute top-0 bottom-0 left-3/4 w-screen"></div>
+
+        <div class="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
+            <div>
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Checkout</h2>
+                <h3 class="text-2xl font-extrabold dark:text-dark-txt text-gray-900 sm:text-3xl">
+                    Membresia
+                </h3>
+            </div>
+        </div>
+
+        <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
+
+            <div class="relative lg:row-start-1 lg:col-start-2">
+                <svg class="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20" width="404" height="384" fill="none"
+                    viewBox="0 0 404 384" aria-hidden="true">
+                    <defs>
+                        <pattern id="de316486-4a29-4312-bdfc-fbce2132a2c1" x="0" y="0" width="20" height="20"
+                            patternUnits="userSpaceOnUse">
+                            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                        </pattern>
+                    </defs>
+                    <rect width="404" height="384" fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)" />
+                </svg>
+                <div class="relative text-base mx-auto max-w-prose lg:max-w-none">
+                    <figure>
+                        <div class="flex justify-center mx-auto">
+                            <div class="py-3">
+
+                                <div class="border dark:border-dark-third border-gray-200 rounded shadow-md px-3 py-3">
+                                    <h2 class="text-xl text-center dark:text-dark-txt text-gray-500">
+                                        Inscribete a {{ pricing_tier.name }} y obten tu membresia
+                                    </h2>
+                                    <p class="text-3xl text-center dark:text-dark-txt text-gray-800">
+                                        {% if pricing_tier.currency == "usd" %}
+                                        ${{ pricing_tier.price }}/mo
+                                        {% else %}
+                                        ${{ pricing_tier.price }}/MXN
+                                        {% endif %}
+                                    </p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <legend class="block text-sm font-medium text-gray-700">Detalles de tu tarjeta</legend>
+                                    <div class="mt-1 bg-white rounded-md shadow-sm -space-y-px">
+                                        <form id="subscription-form"
+                                            class="focus:ring-indigo-500 focus:border-indigo-500 relative block w-full rounded-none rounded-t-md bg-transparent focus:z-10 sm:text-sm border-gray-300">
+                                            {% csrf_token %}
+                                            <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+                                            <button id="submit" type="submit">
+                                                <div class="spinner hidden" id="spinner"></div>
+                                                <span id="button-text">Pagar Ahora</span>
+                                            </button>
+                                            <p id="card-errors" role="alert"></p>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <figcaption class="mt-3 flex text-sm text-gray-500">
+                            <!-- Heroicon name: solid/camera -->
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-none w-5 h-5 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                            <span class="ml-2 cursor-default">Payment Secured by Stripe</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="flex-1 dark:bg-dark-second bg-white px-6 py-8 lg:p-12">
+
+                <p class="mt-6 text-base dark:text-dark-txt text-gray-500">
+                    Inscribete a nuestros cursos y obten información acerca de las consultorias
+                </p>
+                <div class="mt-8">
+                    <div class="flex items-center">
+                        <h4
+                            class="flex-shrink-0 pr-4 dark:text-dark-txt items-center justify-center dark:bg-dark-third rounded-lg bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">
+                            ¿Que obtendras?
+                        </h4>
+                        <div class="flex-1 border-t-2 dark:border-dark-third border-gray-200"></div>
+                    </div>
+                    <ul class="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">
+                        <li class="flex items-start lg:col-span-1">
+                            <div class="flex-shrink-0">
+                                <!-- Heroicon name: solid/check-circle -->
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-sm dark:text-dark-txt text-gray-700">
+                                Cursos en Linea
+                            </p>
+                        </li>
+
+                        <li class="flex items-start lg:col-span-1">
+                            <div class="flex-shrink-0">
+                                <!-- Heroicon name: solid/check-circle -->
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-sm dark:text-dark-txt text-gray-700">
+                                Recursos
+                            </p>
+                        </li>
+
+                        <li class="flex items-start lg:col-span-1">
+                            <div class="flex-shrink-0">
+                                <!-- Heroicon name: solid/check-circle -->
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <p class="ml-3 text-sm dark:text-dark-txt text-gray-700">
+                                Contenido Multimedia
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% block javascript %}
+<script>
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+  var stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
+  var elements = stripe.elements();
+
+  var style = {
+    base: {
+      color: "#32325d",
+      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+      fontSmoothing: "antialiased",
+      fontSize: "16px",
+      "::placeholder": {
+        color: "#aab7c4"
+      }
+    },
+    invalid: {
+      color: "#fa755a",
+      iconColor: "#fa755a"
+    }
+  };
+
+  var priceId = "{{ pricing_tier.stripe_price_id }}";
+
+  var card = elements.create("card", { style: style });
+  card.mount("#card-element");
+
+  card.on('change', showCardError);
+
+  function showCardError(event) {
+    let displayError = document.getElementById('card-errors');
+    if (event.error) {
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = '';
+    }
+  }
+
+  var form = document.getElementById('subscription-form');
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    changeLoadingState(true);
+
+    const latestInvoicePaymentIntentStatus = localStorage.getItem('latestInvoicePaymentIntentStatus');
+
+    if (latestInvoicePaymentIntentStatus === 'requires_payment_method') {
+      const invoiceId = localStorage.getItem('latestInvoiceId');
+      createPaymentMethod({ card, isPaymentRetry: true, invoiceId });
+    } else {
+      createPaymentMethod({ card });
+    }
+  });
+
+  function createPaymentMethod({ card, isPaymentRetry = false, invoiceId = null }) {
+    stripe.createPaymentMethod({
+      type: 'card',
+      card: card,
+    }).then((result) => {
+      if (result.error) {
+        changeLoadingState(false);
+        showCardError(result);
+      } else {
+        if (isPaymentRetry) {
+          retryInvoiceWithNewPaymentMethod({
+            paymentMethodId: result.paymentMethod.id,
+            invoiceId,
+            priceId,
+          });
+        } else {
+          createSubscription({
+            paymentMethodId: result.paymentMethod.id,
+            priceId,
+          });
+        }
+      }
+    });
+  }
+
+  function createSubscription({ paymentMethodId, priceId }) {
+    console.log("Creating subscription with paymentMethodId:", paymentMethodId, "and priceId:", priceId);
+    return fetch("{% url 'pago:create-subscription' %}", {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken,
+      },
+      body: JSON.stringify({
+        paymentMethodId,
+        priceId,
+      }),
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log("Server response for createSubscription:", result);
+      if (result.error) {
+        throw result;
+      }
+      return result;
+    })
+    .then(result => ({
+      paymentMethodId,
+      priceId,
+      subscription: result,
+    }))
+    .then(handlePaymentThatRequiresCustomerAction)
+    .then(handleRequiresPaymentMethod)
+    .then(onSubscriptionComplete)
+    .catch((error) => {
+      changeLoadingState(false);
+      showCardError(error);
+    });
+  }
+
+  function handlePaymentThatRequiresCustomerAction({
+    subscription,
+    invoice,
+    priceId,
+    paymentMethodId,
+    isRetry,
+  }) {
+    if (subscription && subscription.status === 'active') {
+      return { subscription, priceId, paymentMethodId };
+    }
+
+    let paymentIntent = invoice ? invoice.payment_intent : subscription.latest_invoice.payment_intent;
+
+    if (
+      paymentIntent.status === 'requires_action' ||
+      (isRetry && paymentIntent.status === 'requires_payment_method')
+    ) {
+      return stripe.confirmCardPayment(paymentIntent.client_secret, {
+        payment_method: paymentMethodId,
+      })
+      .then((result) => {
+        if (result.error) {
+          throw result;
+        } else if (result.paymentIntent.status === 'succeeded') {
+          return { priceId, subscription, invoice, paymentMethodId };
+        }
+      })
+      .catch((error) => {
+        changeLoadingState(false);
+        showCardError(error);
+      });
+    } else {
+      return { subscription, priceId, paymentMethodId };
+    }
+  }
+
+  function handleRequiresPaymentMethod({
+    subscription,
+    paymentMethodId,
+    priceId,
+  }) {
+    if (subscription.status === 'active') {
+      return { subscription, priceId, paymentMethodId };
+    } else if (
+      subscription.latest_invoice.payment_intent.status === 'requires_payment_method'
+    ) {
+      localStorage.setItem('latestInvoiceId', subscription.latest_invoice.id);
+      localStorage.setItem('latestInvoicePaymentIntentStatus', subscription.latest_invoice.payment_intent.status);
+      throw { error: { message: 'Your card was declined.' } };
+    } else {
+      return { subscription, priceId, paymentMethodId };
+    }
+  }
+
+  function onSubscriptionComplete(result) {
+    console.log("Subscription Complete: ", result);
+    // Verificar si la suscripción es activa
+    if (result.subscription.status === 'active') {
+      console.log("Redirecting to Thank You page...");
+      window.location.href = "{% url 'pago:thank-you' %}";
+    } else {
+      console.log("Subscription is not active: ", result.subscription.status);
+    }
+  }
+
+  function retryInvoiceWithNewPaymentMethod({
+    paymentMethodId,
+    invoiceId,
+    priceId
+  }) {
+    return fetch("{% url 'pago:retry-invoice' %}", {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken,
+      },
+      body: JSON.stringify({
+        paymentMethodId,
+        invoiceId,
+      }),
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log("Server response for retryInvoiceWithNewPaymentMethod:", result);
+      if (result.error) {
+        throw result;
+      }
+      return result;
+    })
+    .then(result => ({
+      invoice: result,
+      paymentMethodId,
+      priceId,
+      isRetry: true,
+    }))
+    .then(handlePaymentThatRequiresCustomerAction)
+    .then(onSubscriptionComplete)
+    .catch((error) => {
+      changeLoadingState(false);
+      showCardError(error);
+    });
+  }
+
+  function changeLoadingState(isLoading) {
+    document.querySelector('#button-text').classList.toggle('hidden', isLoading);
+    document.querySelector('#spinner').classList.toggle('hidden', !isLoading);
+    document.querySelector('#subscription-form button').disabled = isLoading;
+  }
+
+</script>
+
+
+{% endblock javascript %}

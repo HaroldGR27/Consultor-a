@@ -1,0 +1,44 @@
+{% include 'ConsultoriaApp\Login\cabecera.html' %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  {% load static %}
+
+  <title>Consultoria</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!-- Bootstrap -->
+    <link href="{% static 'ConsultoriaApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic" rel="stylesheet">
+     
+
+    <!-- Styles -->
+    <link href="{% static 'ConsultoriaApp/css/login.css' %}" rel="stylesheet">
+    <noscript><link href="{% static 'ConsultoriaApp/css/noscript.css' %}" rel="stylesheet"></noscript>
+
+</head>
+{% block content %}
+<div class ="formularior">
+  <h2>Registrarse</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit" class="button">Registrarse</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+
+}
+
+body {
+    background-image: url("../img/Fondo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+    vertical-align: baseline;
+}
+
+.contenedor__todo {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+}
+
+.caja__trasera {
+    max-width: auto;
+    padding: 10px 20px;
+    justify-content: center;
+    backdrop-filter: blur(30px);
+    background-color: rgb(0, 128, 255, 0.3);
+}
+
+.caja__trasera div {
+    margin: 100px 40px;
+    color: white;
+    transition: all 500ms;
+
+}
+
+.caja__trasera div p {
+    margin-top: 26px;
+}
+
+.caja__trasera div h1 {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.boton-regreso {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.boton-regreso:hover {
+    background-color: #2980b9;
+}
+
+
+.payment-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff; 
+    background-color: #FF0000; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #CC0000; 
+}

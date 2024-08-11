@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trámites, Registros y Autorizaciones</title>
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static 'ConsultoriaApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+
+    <!-- Styles -->
+    <link href="{% static 'ConsultoriaApp/css/login.css' %}" rel="stylesheet">
+    <style>
+        body,
+        h1,
+        p {
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+
+
+<div class ="formulario">
+<h2>Gracias por comprar tu suscripción</h2>
+<a href="{% url 'Inicio' %}" class="button">
+    Volver al inicio</a>
+</div>

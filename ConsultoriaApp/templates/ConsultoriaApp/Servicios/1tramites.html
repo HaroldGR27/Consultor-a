@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trámites, Registros y Autorizaciones</title>
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static 'ConsultoriaApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+
+    <!-- Styles -->
+    <link href="{% static 'ConsultoriaApp/css/gestion2.css' %}" rel="stylesheet">
+    <style>
+        body,
+        h1,
+        p {
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <a href="#" class="boton-regreso" onclick="goBack()">&larr; Regresar</a>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-loguin">
+                    <p style=" color: #fff;">
+                    <h1 style="font-size: 30px; text-align: center; color: #fff; font-family: arial;">
+                        Trámites, Registros y Autorizaciones
+                    </h1>
+                    </p>
+                    <br></br>
+                    <p style="font-size: 23px; text-align: justify ; color: #fff;">
+                        • Inscripción en el Padrón de Importadores y Sectoriales.
+                        <br></br>• Inscripción en el Esquema de Certificación (IVA-IEPS, OEA, CTPAT)
+                        <br></br>• Gestión de programas de fomento al comercio exterior ante la Secretaría de Economía:
+                        IMMEX, PROSEC, Regla Octava.
+                        <br></br>• Trámites de permisos ante diversas dependencias (COFEPRIS - licencia sanitaria, INM -
+                        permisos de inmigración para ejecutivos extranjeros)
+                        <br></br>• Solicitud de autorizaciones para regímenes aduaneros: Depósito Fiscal, RFE.
+                        <br></br>• Solicitud de Devoluciones y Rectificación de Operaciones.
+                        <br></br>• Solicitud de Prórrogas.
+                        <br></br>
+                    </p>
+                    {% if user.is_authenticated %}
+                    <a href="/Tramites-Registros-y-Autorizaciones" class="button">Ver curso</a>
+                    {% else %}
+                    <a href="/Inicio-de-sesion" class="button">Debes iniciar sesión</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

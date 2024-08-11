@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang="en" dir="ltr">
+
+<head>
+  {% load static %}
+
+  <title>Consultoria</title>
+  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+  <!-- Bootstrap -->
+  <link href="{% static 'ConsultoriaApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Fonts -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <!-- Boxicons CDN Link -->
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Styles -->
+  <link href="{% static 'ConsultoriaApp/css/gestion1.css' %}" rel="stylesheet">
+  <noscript>
+    <link href="{% static 'ConsultoriaApp/css/noscript.css' %}" rel="stylesheet">
+  </noscript>
+
+  <style>
+    /* Estilo para el enlace de WhatsApp */
+    #whatsapp-link {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      backdrop-filter: blur(30px);
+      background-color: #25d366;
+
+      color: #fff;
+      padding: 10px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    /* Estilo para los enlaces de redes sociales */
+    #social-links {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    /* Estilo para ocultar el submenú por defecto */
+    #menu ul ul {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="landing is-preload">
+
+
+
+  <!-- Page Wrapper -->
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+      <h1><a href="{% url 'Inicio' %}"> Proyecto Consultoria</a></h1>
+      <nav id="nav">
+        <ul>
+          <li class="special">
+            {% block content %}
+            {% if user.is_authenticated %}
+            Hola {{ user.username }}!
+            <a href="/signout" class="btn btn-danger">Cerrar Sesión</a>
+            <a href="{% url 'pago:pricing' %}" class="btn btn-danger">Precios</a>
+            {% else %}
+            <a href="/Inicio-de-sesion" class="btn btn-danger"><span>Iniciar Sesión</span></a>
+            {% endif %}
+            
+            {% if user.is_superuser %}
+            <a href="/admin" class="btn btn-danger">editar</a>
+            {% else %}
+
+            {% endif %}
+            {% endblock %}
+            <div id="menu">
+              <ul>
+                <li><a>Servicios</a></li>
+                <li><a href="{% url 'Tramites' %}">1 Tramites, Registros y Autorizaciones</a></li>
+                <li><a href="{% url 'Auditoria' %}">2 Auditoría Preventiva</a></li>
+                <li><a href="{% url 'Atencion' %}">3 Atención de Auditorías</a></li>
+                <li><a href="{% url 'Asistencia' %}">4 Asistencia legal</a></li>
+                <li><a href="{% url 'AsistenciaOA' %}">5 Asistencia en la operación aduanera</a></li>
+                <li><a href="{% url 'Capacitacion' %}">6 Capacitación</a></li>
+                <li><a href="{% url 'Estrategias' %}">7 Estrategias comerciales </a></li>
+                <li><a href="{% url 'ServiciosC' %}">8 Servicios Corporativas</a></li>
+                <li><a href="{% url 'ServiciosD' %}">9 Servicios digitales</a></li>
+                <li><a href="{% url 'Alianzas1' %}">10 Alianzas Estrategicas</a>
+                <li><a href="{% url 'Alianzas2' %}">10.2 Alianzas Estrategicas</a>
+                <li><a href="{% url 'Alianzas3' %}">10.3 Alianzas Estrategicas</a>
+                <li><a href="{% url 'Alianzas3' %}">11 Cursos/Capacitaciones</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+      <div class="inner">
+        <h2>Proyecto de Consultoría</h2>
+        <ul class="actions special">
+          <br><br>
+          <li><a href="{% url 'Conocenos' %}" class="button primary">¿Quiénes somos?</a></li>
+          <li><a href="#menu" class="button primary" id="serviciosBtn">Servicios</a></li>
+          <li><a href="{% url 'Contacto' %}" class="button primary">Contacto</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+  <!-- Scripts Albornoz -->
+  <script src="{% static 'ConsultoriaApp/js/jquery.min.js'%}"></script>
+  <script src="{% static 'ConsultoriaApp/js/jquery.scrollex.min.js'%}"></script>
+  <script src="{% static 'ConsultoriaApp/js/jquery.scrolly.min.js'%}"></script>
+  <script src="{% static 'ConsultoriaApp/js/browser.min.js'%}"></script>
+  <script src="{% static 'ConsultoriaApp/js/breakpoints.min.js'%}"></script>
+  <script src="{% static 'ConsultoriaApp/js/util.js'%}"></script>
+  <script src="{% static 'ConsultoriaApp/js/main.js'%}"></script>
+
+  <script>
+    // Agrega un evento de clic al botón "Capacitación"
+    document.querySelector('#menu li:has(> a:contains("Capacitación")) > a').addEventListener('click', function (e) {
+      // Detiene la propagación del evento clic para evitar que se cierre el menú
+      e.stopPropagation();
+
+      // Muestra u oculta el submenú
+      document.querySelector('#menu li:has(> a:contains("Capacitación")) > ul').toggle();
+    });
+  </script>
+</body>
+
+</html>
